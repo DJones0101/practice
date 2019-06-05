@@ -34,7 +34,42 @@ def  merge(left, right):
 
 
 
-def quicksort(seq):
+def quicksort(seq, start, end):
+
+	if start >= end:
+		return 
+	else:
+		
+		middle = partition(seq, start, end)
+		quicksort(seq, start, middle - 1)
+		quicksort(seq, middle + 1, end)
+		
+
+
+def partition(seq, start, end):
+
+	pivot = seq[end]
+	left = start
+	right = end -1
+	
+	while left <= right:
+
+		while left <= end and seq[left] < pivot:
+			left += 1
+
+		while right >= start and seq[right] >= pivot:
+			right -= 1
+
+		if left < right:
+			seq[right], seq[left] = seq[left], seq[right]
+		else:
+			seq[end], seq[left] = seq[left], seq[end]
+
+	return left
+
+
+
+def qsort(seq):
 
 	if len(seq) < 2:
 		return seq
@@ -45,16 +80,13 @@ def quicksort(seq):
 		bigger = [i for i in seq if i > pivot]
 		return quicksort(smaller) + equal + quicksort(bigger)
 
-
-
-
 	
 
 
 l = [23,500, 43, 65, 34, 28, 654]
 q = [43, 243, 454, 7657, 56, 3, 3457] 
 l = mergesort(l)
-q = quicksort(q)
+quicksort(q, 0, len(q)-1)
 
 print("Mergesort : {}".format(l))
 print("Quicksort : {}".format(q))
