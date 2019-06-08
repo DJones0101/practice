@@ -10,12 +10,8 @@ def shift_by_k(arr, k):
 
 	# T: O(n) S: O(n)
 	
-	hash_table = {}
+	hash_table = {key : value for key , value in enumerate(arr) }
 	size = len(arr) 
-
-	for num, val in enumerate(arr):
-
-		hash_table[num] = val
 
 	for i in range(size):
 
@@ -26,7 +22,7 @@ def shift_by_k(arr, k):
 	return  arr
 
 arr1 = ['a', 'b', 'c', 'd', 'e',] 
-k = 3
+k = 2
 shift_by_k(arr1, k)
 
 check1 = "is {} shifted by  {} spaces?".format(arr1, k)

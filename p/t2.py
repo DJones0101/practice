@@ -29,14 +29,11 @@ def has_cycle(arr):
 def _has_cycle(arr):
 	
 	# T: O(n),  S:O(n)
-
-	hash_table = {}
-
-	for i in range(len(arr)):
-		hash_table[i] = 0
+	size = len(arr)
+	hash_table = {i : 0 for i in range(size)}
 
 	for item in arr:
-		if item < len(arr):
+		if item < size:
 			hash_table[item] = hash_table[item] + 1
 
 	for key, value in hash_table.items():
