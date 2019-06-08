@@ -1,27 +1,31 @@
 '''
 
-Shift every element of an array over by k number of spaces
+Shift every element of an array over by k number of spaces, 
+for example arr = [a, b, c, d, e] k = 2, [d, e, a, b, c] should be returned 
 
 '''
 
 
 def shift_by_k(arr, k):
 	
-	temp = arr[0]
+	hash_table = {}
+	size = len(arr) 
 
-	for i in range(n-1):
-		arr[i] = arr[n + 1]
-	arr[n - 1]
+	for num, val in enumerate(arr):
 
-	
-		
+		hash_table[num] = val
 
+	for i in range(size):
 
+		j = (i + k) % size
 
-arr = ['a', 'b','c', 'd', ]
-k = 1
-shift_by_k(arr,k)
+		arr[j] = hash_table[i]
 
-check = "arr shifted by {} spaces {},".format(arr,k)
+	return  arr
 
-print(check)
+arr1 = ['a', 'b', 'c', 'd', 'e',] 
+k = 3
+shift_by_k(arr1, k)
+
+check1 = "is {} shifted by  {} spaces?".format(arr1, k)
+print(check1)
