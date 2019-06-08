@@ -7,6 +7,8 @@ for example arr = [a, b, c, d, e] k = 2, [d, e, a, b, c] should be returned
 
 
 def shift_by_k(arr, k):
+
+	# T: O(n) S: O(n)
 	
 	hash_table = {}
 	size = len(arr) 
