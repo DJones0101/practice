@@ -30,9 +30,51 @@ def reverse(arr):
 		new_arr.append(" ")
 
 	return  new_arr
-		
+
+
+
+def _reverse(arr):
+
+	# T: O(n) S: O(1)
+
+	def swap(start, end, arr):
+
+		while start != end:
+			arr[start], arr[end] = arr[end], arr[start]
+
+			start += 1
+			end -= 1
+
+	for i, char in enumerate(arr[::-1]):
+		arr[i] = char
+
+	start = 0
+	end = 0
+
+	for i in range(len(arr)):
+
+		if arr[i] == '_':
+
+			end = i - 1 
+			swap(start, end, arr)
+			start = end + 2 
+
+		elif i == len(arr) - 1:
+
+			end = i
+			swap(start,end,arr)
+
+
+
 
 arr = ['i',' ','l', 'o', 'v', 'e',' ','c','a','l','i','f','o','r','n','i','a',]
 print("".join(arr))
 new_arr = reverse(arr)
 print("".join(new_arr))
+
+print("\n")
+
+arr1 = ['i',' ','l', 'o', 'v', 'e',' ','c','a','l','i','f','o','r','n','i','a',]
+print("".join(arr1))
+new_arr1 = reverse(arr1)
+print("".join(new_arr1))
