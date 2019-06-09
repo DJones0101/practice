@@ -55,14 +55,14 @@ def _reverse(arr):
 	for i in range(len(arr)):
 	
 			if arr[i] == ' ':
-			end = i - 1 
-			swap(start, end, arr)
-			start = end + 2
+				end = i - 1 
+				swap(start, end, arr)
+				start = end + 2
 			
-		elif i == len(arr) - 1:
+			elif i == len(arr) - 1:
 
-			end = i - 2
-			swap(start,end,arr)
+				end = i - 2
+				swap(start,end,arr)
 	
 
 
