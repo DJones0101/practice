@@ -18,6 +18,20 @@ def find_sum(arr, n):
 
 	return  hashMap[n]
 
+def _find_sum(arr, n):
+
+	# T: O(n), S:O(n)
+
+	hashMap = {}
+
+	for i in range(len(arr)):
+		hashMap[arr[i]] = n - arr[i]
+
+	for key, val in hashMap.items():
+
+		if key + val == n and val in arr:
+			return (key, val) 
+
 
 arr = [2,4,1,9,7]
 n = 9
@@ -30,3 +44,16 @@ check2 = "{} can be computed using  {}".format(n, find_sum(arr,n))
 print(check)
 print(check1)
 print(check2)
+print("\n")
+
+arr = [2,4,1,9,7]
+n = 9
+check3 = "{} can be computed using  {}".format(n, _find_sum(arr,n))
+n = 5
+check4 = "{} can be computed using  {}".format(n, _find_sum(arr,n))
+n = 16
+check5 = "{} can be computed using  {}".format(n, _find_sum(arr,n))
+
+print(check3)
+print(check4)
+print(check5)
