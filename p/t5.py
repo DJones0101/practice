@@ -23,7 +23,7 @@ def longest_subseq(arr):
 					hashMap[key].append(key)
 
 				elif cur - val[-1] == 1:
-					 hashMap[key].append(key + i)
+					 hashMap[key].append(cur)
 
 	largest_val = 0
 	largest_key = 0
