@@ -1,6 +1,5 @@
 '''
 If you're given an array of numbers and a number, you have to find the set of 2 elements that sum up to given number?
-
 For example, if the inputs are: [2,4,1,9,7] & 9, then your algorithm should return '[2,7]'.
 '''
 
