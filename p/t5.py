@@ -8,7 +8,7 @@ subsequence in that array is [1,2,3,4].
 
 def longest_subseq(arr):
 
-	# T: O(n ^ 2), O(n)
+	# T: O(n ^ 2), S: O(n)
 
 	hashMap = {num : [] for num in arr}	
 	
@@ -26,15 +26,15 @@ def longest_subseq(arr):
 					 hashMap[key].append(cur)
 
 	largest_val = 0
-	largest_key = 0
+
 
 	for key, val in hashMap.items():
 		size = len(val)
 		if(size  > largest_val):
 			largest_val = size
-			largest_key = val[-1]
+			
 
-	return largest_key
+	return largest_val
 
 
 arr = [2,1,6,9,4,3,]
