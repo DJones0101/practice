@@ -1,36 +1,38 @@
 '''
-Given an input array, reverse it in O(n) time complexity and O(1) space complexity.
+Give an array of integers and an integer k, find all subsets of that array that sum to the number k.
+
+This problem was difficult, I need to spend some time looking before I move on.
 '''
 
-def swap(arr, start, end):
 
-	while start < end:
-		 arr[start], arr[end] = arr[end], arr[start]
-
-		 start += 1
-		 end -= 1
+def perfectSum(arr, ksum):
 
 
-a = [1,3,5,3,0]
-b = [0,5,3,3,13,10]
-c = [3,7,11,5,3,0,9]
+	def _perfectSum(arr, size, subset, ksum):
 
-check = "{} reveserd is ".format(a)
-swap(a, 0, len(a)-1)
-ar = "{}".format(a)
-check = check + ar
+		if ksum == 0:
+			for value in subset:
+				print(value, end=' ')
+			print()
+			return 
+		if size == 0:
+			return 
+
+		_perfectSum(arr, size - 1, subset, ksum)
+		subset1 = [] + subset
+		subset1.append(arr[size - 1])
+		_perfectSum(arr, size - 1, subset1, ksum - arr[size-1])
+
+	size = len(arr) 
+	subset = []
+	_perfectSum(arr, size, subset,ksum)
 
 
-check1 = "{} reveserd is ".format(a)
-swap(b, 0, len(b)-1)
-br = "{}".format(b)
-check1 = check1 + br
 
-check2 = "{} reveserd is ".format(a)
-swap(c, 0, len(c)-1)
-cr = "{}".format(c)
-check2 = check2 + cr
 
-print(check)
-print(check1)
-print(check2)
+	
+
+arr = [1,3,5,0]
+ksum = 6
+
+perfectSum(arr,ksum)

@@ -20,9 +20,7 @@ def getCommon(a, b, c):
 	result = []
 	hashMap = {}
 
-	for num in a:
-		if num not in hashMap:
-			hashMap[num] = []
+	hashMap = {num : [] for num in a if num not in hashMap}
 
 	for num in b:
 		if num in hashMap:
