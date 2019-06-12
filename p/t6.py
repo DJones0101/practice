@@ -18,8 +18,6 @@ def getCommon(a, b, c):
 	#T: O(a + b + c), S:O(n)
 
 	result = []
-	hashMap = {}
-
 	hashMap = {num : [] for num in a if num not in hashMap}
 
 	for num in b:
