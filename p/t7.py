@@ -7,6 +7,8 @@ This problem was difficult, #come back to this one#. This is a dynamic programmi
 
 def perfectSum(arr, ksum):
 
+	# T: O(2^n) S: O(n)
+
 	def _perfectSum(arr, size, subset, ksum,  cache):
 
 		if ksum == 0:
