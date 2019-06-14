@@ -31,6 +31,19 @@ def perfectSum(arr, ksum):
 	return cache
 
 
+cache =[0, 1]
+def fib(n):
+
+	if n < 0:
+		print("n must be a positive integer")
+
+	elif n <= len(cache):
+		return cache[n -1 ]
+	else:
+		temp = fib(n - 1) + fib(n - 2)
+		cache.append(temp)
+		return temp 
+
 
 
 	
@@ -39,4 +52,6 @@ arr = [1,3,5,0,]
 ksum = 6
 
 print(perfectSum(arr,ksum))
+
+print("9 : {}".format(fib(9)))
 
