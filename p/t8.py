@@ -4,6 +4,9 @@ class Node:
 		self.data = data
 		self.next = nextNode
 
+	def set_data(self, data):
+		self.data = data
+
 
 class LinkedList:
 
@@ -125,7 +128,6 @@ class LinkedList:
 
 		For example, if the input linked list is [1,2,3,4], then your algorithm should return '[4,3,2,1]'.
 		'''	
-
 		curr = self.head.next
 		prev = None
 		
@@ -138,15 +140,57 @@ class LinkedList:
 		self.head.next = prev
 		return 
 
+	def oddsb4evens(self):
+		'''
+		Given a linked list, mutate it such that all odd nodes appear first, followed by even nodes.
+
+		For example, if the input linked list is [1,2,3,4,5], then your algorithm should return '[1,3,5,2,4]'.
+		'''
+
+		#T: O(n), S:O(n)
+
+		cache = []
+		curr = self.head
+
+		while curr.next != None:
+			curr = curr.next
+			cache.append(curr.data)
+
+		cache1 = []
+		cache2 = []
+
+		for num in cache:
+
+			if num % 2 != 0:
+				cache1.append(num)
+			else:
+				cache2.append(num)
+
+		cache = cache1 + cache2
+		curr = self.head
+		i = 0
+
+		while curr.next != None:
+			curr = curr.next
+			curr.set_data(cache[i])
+			i += 1
+		return 
+
+
 mylist = LinkedList()
 
-for i in range(1, 5):
+for i in range(1, 6):
 	mylist.append(i)
+
+# mylist.display()
+# print("\n")
+# mylist.reverse_list()
+# mylist.display()	
+
 
 mylist.display()
 print("\n")
-mylist.reverse_list()
+mylist.oddsb4evens()
 mylist.display()	
-
 
 
