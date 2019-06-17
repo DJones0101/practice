@@ -81,9 +81,12 @@ def short_bfs(graph, start, goal):
 def shortest(graph, start, goal):
 
 	try:
-		return next(short_bfs(graph, start, goal))
+		res = []
+		for i in range(10):
+			res.append(next(short_bfs(graph, start, goal)))
+		return res
 	except StopIteration:
 		return None
 
 
-print(shortest(graph1,'A','F'))
+print(shortest(graph,'a','f'))
