@@ -35,7 +35,7 @@ def dfs(graph, start):
 
 			visited.add(vertex)
 			
-			stack.extend(graph[vertex] - list(visited))
+			stack.extend(graph[vertex] - visited)
 
 	return visited
 
