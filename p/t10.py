@@ -26,7 +26,7 @@ class Stack:
 				self.size -= 1
 				self.itmes.append(temp)
 				temp = self.itmes.pop(0)
-			self.top = self.itmes[len(self.itmes)-1]
+			self.top = self.itmes[0]
 			return temp
 	
 	def peek(self):
@@ -46,7 +46,7 @@ class Stack:
 stak = Stack()
 for i in range(1,11):
 	stak.push(i)
-	
+
 stak.display()
 stak.pop()
 stak.pop()

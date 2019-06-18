@@ -21,6 +21,15 @@ graph1 = {'A': set(['B', 'C']),
          'F': set(['C', 'E'])}
 
 
+graph2 = [
+			[0,1,1,0,0,0],
+			[1,0,0,1,1,0],
+			[1,0,0,0,0,1],
+			[0,1,0,0,0,0],
+			[0,0,0,0,1,1],
+			[0,0,1,0,1,0],
+		]
+
 
 def dfs(graph, start):
 
@@ -39,7 +48,21 @@ def dfs(graph, start):
 
 	return visited
 
+def _dfs(graph, start):
 
+	stack = [(start,start)]
+	visited = []
+
+	while stack:
+		row, _= stack.pop()
+		for col in range(len(graph[row])):
+			value = graph[row][col]
+			index = (row, col)
+			print(value, index)
+			if value == 1 and index not in visited:
+				visited.append(index)
+				stack.append(row)
+	return visited
 
 
 def bfs(graph, start):
@@ -58,6 +81,8 @@ def bfs(graph, start):
 			queue.extend(graph[vertex] - visited)
 
 	return visited
+
+
 
 
 def short_bfs(graph, start, goal):
@@ -81,12 +106,9 @@ def short_bfs(graph, start, goal):
 def shortest(graph, start, goal):
 
 	try:
-		res = []
-		for i in range(10):
-			res.append(next(short_bfs(graph, start, goal)))
-		return res
+		return next(short_bfs(graph, start, goal))
 	except StopIteration:
 		return None
 
 
-print(shortest(graph,'a','f'))
+print(_dfs(graph2, 0))
